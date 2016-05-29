@@ -6,12 +6,14 @@
   const d = decodeURIComponent
   const h = 'hostname'
   const p = 'pathname'
-  const q = l[h].split('.').length === 3 ? d((l[h].split('.').shift() + l[p]).replace(r, ' ')) : d(l[p].replace(r, ' '))
+  const q = /\?lol=/
+  const m = l.search.split(q)
+  const s = l[h].split('.').length === 3 ? d((l[h].split('.').shift() + l[p]).replace(r, ' ')) : d(l[p].replace(r, ' '))
 
   const $ = (selector) => document.querySelector(selector)
 
   const getSingle = (arr) => {
-    const urls = arr.filter((v) => (/\imgur\b.*\gif|gifv\b/.test(v.data.url))).map((v) => v.data.url.replace(/gifv/, 'gif'))
+    const urls = arr.filter((v) => (/imgur\b.*gif|gifv\b/.test(v.data.url))).map((v) => v.data.url.replace(/gifv/, 'gif'))
     return urls[Math.floor(urls.length * Math.random())]
   }
 
@@ -33,15 +35,9 @@
   const setBG = (url) => {
     const style = `background-image: url('${url}')`
     $('body').setAttribute('style', style)
-    $('body').innerHTML = $('title').innerHTML = q
-    speak(q)
+    $('body').innerHTML = $('title').innerHTML = s
+    speak(s)
   }
 
-  const queryParam = /\?lol=/
-  const queryMatch = l.search.split(queryParam)
-  if (queryMatch.length > 1) {
-    setBG(queryMatch[1])
-  } else {
-    request(json)
-  }
+  m.length > 1 ? setBG(m[1]) : request(json)
 })()

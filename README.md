@@ -7,7 +7,7 @@ A simple 404 page that uses the URI as input to generate a 404 message.
 ## Features
 
 * Dyanmic text-to-speech! (A slightly modified version of: https://github.com/kripken/speak.js)
-* Random background fetched from: http://reddit.com/r/wheredidthesodago/ or url of your own
+* Random background fetched from: http://reddit.com/r/wheredidthesodago/ or url of your own choosing
 * Complete disregard for sane coding practices
 
 ## Installation
@@ -20,7 +20,7 @@ Simply clone at the root of your site, configure your http daemon to use the new
 * http://ricky.codes/Y/U/GO/THAR/ಠ_ಠ
 * http://ricky.codes/☁→❄→☃
 * http://ricky.codes/%7C%20(•%20◡•)%7C%20(❍ᴥ❍ʋ)
-* http://ricky.codes/✡/✞
+* http://ricky.codes/lol/butts/?lol=http://i1.wp.com/farm9.staticflickr.com/8342/8176438031_ea9d9980d6_z.jpg
 * etc.
 
 ## Notes
