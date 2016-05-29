@@ -19,10 +19,7 @@
     if (req.status >= 200 && req.status < 400) {
       const res = JSON.parse(req.responseText)
       const url = getSingle(res.data.children)
-      const style = `background-image: url('${url}')`
-      $('body').setAttribute('style', style)
-      $('body').innerHTML = $('title').innerHTML = q
-      speak(q)
+      setBG(url)
     }
   }
 
@@ -33,5 +30,18 @@
     req.send()
   }
 
-  request(json)
+  const setBG = (url) => {
+    const style = `background-image: url('${url}')`
+    $('body').setAttribute('style', style)
+    $('body').innerHTML = $('title').innerHTML = q
+    speak(q)
+  }
+
+  const queryParam = /\?lol=/
+  const queryMatch = l.search.split(queryParam)
+  if (queryMatch.length > 1) {
+    setBG(queryMatch[1])
+  } else {
+    request(json)
+  }
 })()
