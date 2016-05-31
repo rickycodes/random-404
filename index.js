@@ -6,11 +6,21 @@
   const d = decodeURIComponent
   const h = 'hostname'
   const p = 'pathname'
-  const q = /\?lol=/
-  const m = l.search.split(q)
   const s = l[h].split('.').length === 3 ? d((l[h].split('.').shift() + l[p]).replace(r, ' ')) : d(l[p].replace(r, ' '))
-
   const $ = (selector) => document.querySelector(selector)
+
+  const qs = ((src) => {
+    const params = {}
+    const qrystr = src.split('?')[1]
+    if (qrystr) {
+      qrystr.split('&').forEach((p, i) => {
+        const ps = p.replace(/\/$/, '').split('=')
+        const k = ps[0].replace(/^\?/, '')
+        params[k] = ps[1] || true
+      })
+    }
+    return params
+  })(l.search)
 
   const getSingle = (arr) => {
     const urls = arr.filter((v) => (/imgur\b.*gif|gifv\b/.test(v.data.url))).map((v) => v.data.url.replace(/gifv/, 'gif'))
@@ -36,8 +46,8 @@
     const style = `background-image: url('${url}')`
     $('body').setAttribute('style', style)
     $('body').innerHTML = $('title').innerHTML = s
-    speak(s)
+    speak(s, {pitch: qs.pitch, speed: qs.speed, amplitude: qs.amplitude})
   }
 
-  m.length > 1 ? setBG(m[1]) : request(json)
+  qs.lol ? setBG(qs.lol) : request(json)
 })()
