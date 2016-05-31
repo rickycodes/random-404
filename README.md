@@ -17,11 +17,12 @@ Simply clone at the root of your site, configure your http daemon to use the new
 
 ## Examples
 
-* http://ricky.codes/no/no/u
+* http://ricky.codes/no/u
 * http://ricky.codes/Y/U/GO/THAR/ಠ_ಠ
 * http://ricky.codes/☁→❄→☃
 * http://ricky.codes/%7C%20(•%20◡•)%7C%20(❍ᴥ❍ʋ)
 * http://ricky.codes/lol/butts/?lol=http://i1.wp.com/farm9.staticflickr.com/8342/8176438031_ea9d9980d6_z.jpg
+* http://ricky.codes/where/did/the/soda/go?speed=1&pitch=1&wordgap=20
 * etc.
 
 ## Notes
