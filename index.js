@@ -46,7 +46,7 @@
     const style = `background-image: url('${url}')`
     $('body').setAttribute('style', style)
     $('body').innerHTML = $('title').innerHTML = s
-    speak(s, {pitch: qs.pitch, speed: qs.speed, amplitude: qs.amplitude})
+    speak(s, {pitch: qs.pitch, speed: qs.speed, amplitude: qs.amplitude, wordgap: qs.wordgap})
   }
 
   qs.lol ? setBG(qs.lol) : request(json)
