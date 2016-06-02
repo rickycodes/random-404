@@ -2,11 +2,7 @@
 (() => {
   const json = 'http://www.reddit.com/r/wheredidthesodago/new/.json'
   const l = window.location
-  const r = /[/.-]/g
-  const d = decodeURIComponent
-  const h = 'hostname'
-  const p = 'pathname'
-  const s = l[h].split('.').length === 3 ? d((l[h].split('.').shift() + l[p]).replace(r, ' ')) : d(l[p].replace(r, ' '))
+  const s = l['pathname'].replace(/[/.-]/g, ' ').substring(1)
   const $ = (selector) => document.querySelector(selector)
 
   const qs = ((src) => {
