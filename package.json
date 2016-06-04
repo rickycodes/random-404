@@ -1,0 +1,26 @@
+{
+  "name": "random-404",
+  "version": "1.0.0",
+  "description": "lols",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./server.js",
+    "test": "standard -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rickycodes/random-404.git"
+  },
+  "keywords": [
+    "lols"
+  ],
+  "author": "@rickycodes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rickycodes/random-404/issues"
+  },
+  "homepage": "https://github.com/rickycodes/random-404",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
