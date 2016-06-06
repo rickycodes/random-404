@@ -64,24 +64,18 @@ const loaded = () => {
   }
 
   const next = () => {
-    const wordgap = parseInt(qs.wordgap)
-    setTimeout(() => {
-      speak(words[++tick])
-    }, wordgap)
+    setTimeout(() => speak(words[++tick]), parseInt(qs.wordgap))
   }
 
   const speak = (word) => {
+    if (!word) return
     const utter = getUtter(word)
     utter.addEventListener('end', next)
     synth.speak(utter)
   }
 
   const changed = () => {
-    if (qs.wordgap) {
-      speak(words[tick])
-      return
-    }
-    synth.speak(getUtter(words.join(' ')))
+    (qs.wordgap) ? speak(words[tick]) : synth.speak(getUtter(words.join(' ')))
   }
 
   qs.lol ? setBG(qs.lol) : request(json)
