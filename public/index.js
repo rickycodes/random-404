@@ -1,10 +1,11 @@
 /* global SpeechSynthesisUtterance XMLHttpRequest */
-(() => {
+const loaded = () => {
   const json = 'http://www.reddit.com/r/wheredidthesodago/new/.json'
   const l = window.location
-  const s = decodeURIComponent(l['pathname'].replace(/[/.-]/g, ' ').substring(1))
   const $ = (selector) => document.querySelector(selector)
   const synth = window.speechSynthesis || null
+  const words = decodeURIComponent(l['pathname'].replace(/[/.-]/g, ' ').substring(1)).split(' ')
+
   let tick = 0
 
   const qs = ((src) => {
@@ -34,39 +35,19 @@
   }
 
   const getVoice = (voice) => {
-    const voices = synth ? synth.getVoices() : null
-    return (voice) ? voices.filter(v => v.name === voice)[0] : voices[0]
+    const voices = synth.getVoices()
+    return (voice) ? voices.filter(v => v.name === decodeURIComponent(voice))[0] : null
   }
 
   const adjust = (utter) => {
-    'pitch,rate,volume'.split(',').map(v => utter[v] = qs[v] || 1) // eslint-disable-line no-return-assign
+    'pitch,rate,volume'.split(',').forEach(v => utter[v] = qs[v] || 1) // eslint-disable-line no-return-assign
     return utter
-  }
-
-  const delayed = (words) => {
-    const utter = getUtter(words[tick])
-    synth.speak(utter)
-    utter.onend = () => {
-      if (tick < words.length - 1) {
-        tick++
-        window.setTimeout(delayed, qs.wordgap, words)
-      }
-    }
   }
 
   const getUtter = (str) => {
     const utter = new SpeechSynthesisUtterance(str)
     utter.voice = getVoice(qs.voice)
-    adjust(utter)
-    return utter
-  }
-
-  const speak = (str) => {
-    if (!synth) return
-    if (qs.wordgap) {
-      return delayed(str.split(' '))
-    }
-    synth.speak(getUtter(str))
+    return adjust(utter)
   }
 
   const request = (url) => {
@@ -79,9 +60,32 @@
   const setBG = (url) => {
     const style = `background-image: url('${url}')`
     $('body').setAttribute('style', style)
-    $('body').innerHTML = $('title').innerHTML = s
-    speak(s)
+    $('body').innerHTML = $('title').innerHTML = words.join(' ')
+  }
+
+  const next = () => {
+    const wordgap = parseInt(qs.wordgap)
+    setTimeout(() => {
+      speak(words[++tick])
+    }, wordgap)
+  }
+
+  const speak = (word) => {
+    const utter = getUtter(word)
+    utter.addEventListener('end', next)
+    synth.speak(utter)
+  }
+
+  const changed = () => {
+    if (qs.wordgap) {
+      speak(words[tick])
+      return
+    }
+    synth.speak(getUtter(words.join(' ')))
   }
 
   qs.lol ? setBG(qs.lol) : request(json)
-})()
+  if (synth) synth.addEventListener('voiceschanged', changed)
+}
+
+document.addEventListener('DOMContentLoaded', loaded)
