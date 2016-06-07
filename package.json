@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node ./server.js",
-    "test": "standard -v"
+    "build": "tsc index.js --allowJs --outFile public/index.js",
+    "dev": "tsc index.js --allowJs --outFile public/index.js -w & npm start",
+    "test": "standard -v index.js && npm run build"
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,9 @@
   "homepage": "https://github.com/rickycodes/random-404",
   "dependencies": {
     "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "standard": "^7.1.2",
+    "typescript": "^1.8.10"
   }
 }

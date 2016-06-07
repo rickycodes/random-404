@@ -11,6 +11,6 @@ app.listen(port, (error, server) => {
   if (error) {
     console.log(error)
   } else {
-    console.log('Listening on http://0.0.0.0:%s', port)
+    console.log('Listening on http://0.0.0.0:%s/lol', port)
   }
 })

@@ -28,7 +28,7 @@ Simply configure your http daemon to use the two files in `/public` as your glob
 * <a target='_blank' href='http://ricky.codes/lol/butts/?lol=http://i1.wp.com/farm9.staticflickr.com/8342/8176438031_ea9d9980d6_z.jpg'>http://ricky.codes/lol/butts/?lol=http://i1.wp.com/farm9.staticflickr.com/8342/8176438031_ea9d9980d6_z.jpg</a>
 
 **alter `pitch`, `rate` & `wordgap`:**
-* <a target='_blank' href='http://ricky.codes/where/did/the/soda/go?rate=0.1&pitch=0.1&wordgap=1000'>http://ricky.codes/where/did/the/soda/go?rate=0.1&pitch=0.1&wordgap=100</a>
+* <a target='_blank' href='http://ricky.codes/where/did/the/soda/go?rate=0.1&pitch=0.1&wordgap=1000'>http://ricky.codes/where/did/the/soda/go?rate=0.1&pitch=0.1&wordgap=1000</a>
 
 ## Notes
 
