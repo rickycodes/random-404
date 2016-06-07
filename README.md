@@ -1,4 +1,6 @@
 ## Random 404
+[![Build Status](https://api.travis-ci.org/rickycodes/random-404.svg?branch=master)](https://travis-ci.org/rickycodes/moonmoji/)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 ![wat](http://ricky.codes/i/deal-with-it.gif?v=lol)
 
@@ -13,7 +15,7 @@ A simple 404 page that uses the URL's `pathname` as input to generate a custom m
 
 ## Installation
 
-Simply configure your http daemon to use the two files in `/public` as your global 404 e.g.: `error_page 404 /404/index.html;`, _et voilà!_
+Simply configure your http daemon to use the two files in `/public` (after you `npm run build`) as your global 404 e.g.: `error_page 404 /404/index.html;`, _et voilà!_
 
 ## Examples
 
