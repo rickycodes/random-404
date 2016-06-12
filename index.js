@@ -78,7 +78,9 @@ const loaded = () => {
     (qs.wordgap) ? speak(words[tick]) : synth.speak(getUtter(words.join(' ')))
   }
 
-  qs.lol ? setBG(qs.lol) : request(json)
+  const img = qs.lol || qs.img
+
+  img ? setBG(img) : request(json)
   if (synth) synth.addEventListener('voiceschanged', changed)
 }
 
