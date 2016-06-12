@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node ./server.js",
     "build": "tsc index.js --allowJs --outFile public/index.js",
+    "build:min": "npm run build && cat public/index.js | uglifyjs -m | tee public/index.js",
     "dev": "tsc index.js --allowJs --outFile public/index.js -w & npm start",
     "test": "standard -v index.js && npm run build"
   },
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "standard": "^7.1.2",
-    "typescript": "^1.8.10"
+    "typescript": "^1.8.10",
+    "uglify-js": "^2.6.2"
   }
 }

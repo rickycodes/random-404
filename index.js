@@ -64,7 +64,7 @@ const loaded = () => {
   }
 
   const next = () => {
-    setTimeout(() => speak(words[++tick]), parseInt(qs.wordgap))
+    setTimeout(() => speak(words[++tick]), parseInt(qs.wordgap + '000'))
   }
 
   const speak = (word) => {
