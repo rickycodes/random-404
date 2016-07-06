@@ -1,5 +1,5 @@
 ## Random 404
-[![Build Status](https://api.travis-ci.org/rickycodes/random-404.svg?branch=master)](https://travis-ci.org/rickycodes/moonmoji/)
+[![Build Status](https://api.travis-ci.org/rickycodes/random-404.svg?branch=master)](https://travis-ci.org/rickycodes/random-404/)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 ![wat](http://ricky.codes/i/deal-with-it.gif?v=lol)
