@@ -1,6 +1,6 @@
 /* global SpeechSynthesisUtterance XMLHttpRequest */
 const loaded = () => {
-  const json = 'http://www.reddit.com/r/wheredidthesodago/new/.json'
+  const json = '//www.reddit.com/r/wheredidthesodago/new/.json'
   const l = window.location
   const $ = (selector) => document.querySelector(selector)
   const synth = window.speechSynthesis || null
@@ -22,7 +22,9 @@ const loaded = () => {
   })(l.search)
 
   const getSingle = (arr) => {
-    const urls = arr.filter(v => (/imgur\b.*gif|gifv\b/.test(v.data.url))).map(v => v.data.url.replace(/gifv/, 'gif'))
+    const urls = arr.filter(v =>
+      (/imgur\b.*gif|gifv\b/.test(v.data.url))).map(v => v.data.url.replace(/gifv/, 'gif').replace(/(http:|https:)/, '')
+    )
     return urls[Math.floor(urls.length * Math.random())]
   }
 
