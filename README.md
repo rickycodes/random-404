@@ -1,4 +1,6 @@
 ## Random 404
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/rickycodes/random-404.svg)](https://greenkeeper.io/)
 [![Build Status](https://api.travis-ci.org/rickycodes/random-404.svg?branch=master)](https://travis-ci.org/rickycodes/random-404/)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
